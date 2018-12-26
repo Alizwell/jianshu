@@ -21,7 +21,7 @@ class Header extends Component{
 					<NavItem >登录</NavItem>
 				</Nav>
 				<BtnWrap>
-					<Button className="reg">注册</Button>
+					<Button className="reg">注册2</Button>
 					<Button className="write">写文章</Button>
 				</BtnWrap>
 			</HeaderWrap>
