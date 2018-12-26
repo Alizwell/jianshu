@@ -29,10 +29,6 @@ export  const Font = createGlobalStyle`
 
 
 
-
-
-
-
 export const HeaderWrap =  styled.header`
 	max-width:1440px;
 	min-width:768px;
@@ -70,7 +66,7 @@ export const Nav =  styled.ul`
 	}
 	&.right{
 		float:right;
-	}	
+	}		
 `;
 
 export const NavItem =  styled.li`	
@@ -99,6 +95,20 @@ export const NavItem =  styled.li`
 	&.right{
 		float:right;
 	}
+
+	.slide-enter {
+		transition: all .2s ease-out;
+	}
+	.slide-enter-active {
+		width: 240px;
+	}
+	.slide-exit {
+		transition: all .2s ease-out;
+	}
+	.slide-exit-active {
+		width: 160px;
+	}
+
 `;
 
 export const SearchItem = styled.input.attrs({
@@ -110,12 +120,17 @@ export const SearchItem = styled.input.attrs({
 	background-color: #eee;
 	border-radius:40px;
 	width:160px;
+	
+
 	outline:none;
 	border:none;
 	text-indent: 15px;
 	&::placeholder{
 		font-size:14px;
 		color:#ccc;
+	}
+	&.focused{
+		width: 240px;		
 	}
 `;
 
@@ -127,9 +142,14 @@ export const Glass = styled.div`
 	right: 5px;
 	top: 0;
 	bottom: 0;
+	border-radius: 15px;
 	text-align:center;
 	line-height: 30px;
 	margin:auto 0;
+	&.focused{
+		color:#fff;
+		background-color:#888;
+	}
 `;
 
 export const BtnWrap =  styled.div`	
