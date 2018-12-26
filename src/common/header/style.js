@@ -7,15 +7,17 @@ export const HeaderWrap =  styled.header`
 `;
 
 
-export const Logo =  styled.div`
+export const Logo =  styled.a.attrs({href:'./'})`
 	width: 100px;	
+	height: 56px;
 	background:green;
 	display:inline-block;
 `;
 
 export const Nav =  styled.div`
 	width: 930px;
-	height: 56px;	
+	height: 56px;
+	vertical-align: top;	
 	display: inline-block;	
 	&.left {
 		float:left;

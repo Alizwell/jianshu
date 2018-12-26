@@ -13,9 +13,7 @@ class Header extends Component{
 	render(){
 		return (
 			<HeaderWrap>
-				<Logo>
-					123
-				</Logo>
+				<Logo />				
 				<Nav>
 					<NavItem className="index">首页</NavItem>
 					<NavItem className="down">下载App</NavItem>
