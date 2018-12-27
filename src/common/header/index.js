@@ -2,7 +2,7 @@ import React, { Component } from  'react';
 
 import  { connect }  from 'react-redux';
 
-
+import { actionCreators }  from './store';
 
 import { CSSTransition } from 'react-transition-group'
 
@@ -59,7 +59,7 @@ class Header extends Component{
 
 const mapStateToProps = (state)=>{
 	return {
-		focused: state.focused
+		focused: state.header.focused
 	}
 }
 
@@ -67,17 +67,10 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch)=>{
 	return {
 		handleFocus(){
-			const action = {
-				type: 'search_focus'
-			}
-			dispatch(action);			
+			dispatch(actionCreators.actionSearchFocus());			
 		},
-
 		handleBlur(){
-			const action = {
-				type: 'search_blur'
-			}
-			dispatch(action);	
+			dispatch(actionCreators.actionSearchBlur());	
 		}
 	}
 }
