@@ -1,5 +1,9 @@
 import React, { Component } from  'react';
 
+import  { connect }  from 'react-redux';
+
+
+
 import { CSSTransition } from 'react-transition-group'
 
 import {
@@ -16,26 +20,6 @@ import {
 }  from './style';
 
 class Header extends Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			focused: false
-		};
-		this.handleFocus = this.handleFocus.bind(this);
-		this.handleBlur = this.handleBlur.bind(this);
-	}
-
-	handleFocus(){
-		this.setState({
-			focused: true
-		})
-	}
-
-	handleBlur(){
-		this.setState({
-			focused: false	
-		})
-	}
 
 	render(){
 		return (
@@ -51,17 +35,17 @@ class Header extends Component{
 						<NavItem className="down"><i className="iconfont">&#xe6ac;</i> 下载App</NavItem>
 						<NavItem className="search">	
 							<CSSTransition	
-								in={this.state.focused}
+								in={this.props.focused}
 								timeout={200}
 								classNames="slide"
 							>
 								<SearchItem  
-									className={ this.state.focused ? 'focused' : '' }
-									onFocus={this.handleFocus}
-									onBlur={this.handleBlur}
+									className={ this.props.focused ? 'focused' : '' }
+									onFocus={this.props.handleFocus}
+									onBlur={this.props.handleBlur}
 								/>
 							</CSSTransition>
-							<Glass className={ this.state.focused ? 'focused' : '' }><i className='iconfont'>&#xe6dd;</i></Glass>							
+							<Glass className={ this.props.focused ? 'focused' : '' }><i className='iconfont'>&#xe6dd;</i></Glass>							
 						</NavItem>
 						<NavItem className="right">Aa</NavItem>
 						<NavItem className="right">登录</NavItem>
@@ -73,4 +57,30 @@ class Header extends Component{
 	}
 }
 
-export default Header;
+const mapStateToProps = (state)=>{
+	return {
+		focused: state.focused
+	}
+}
+
+
+const mapDispatchToProps = (dispatch)=>{
+	return {
+		handleFocus(){
+			const action = {
+				type: 'search_focus'
+			}
+			dispatch(action);			
+		},
+
+		handleBlur(){
+			const action = {
+				type: 'search_blur'
+			}
+			dispatch(action);	
+		}
+	}
+}
+
+
+export default  connect(mapStateToProps, mapDispatchToProps)(Header);
