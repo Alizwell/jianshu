@@ -100,7 +100,7 @@ export const NavItem =  styled.li`
 		transition: all .2s ease-out;
 	}
 	.slide-enter-active {
-		width: 240px;
+		width: 335px;
 	}
 	.slide-exit {
 		transition: all .2s ease-out;
@@ -120,8 +120,6 @@ export const SearchItem = styled.input.attrs({
 	background-color: #eee;
 	border-radius:40px;
 	width:160px;
-	
-
 	outline:none;
 	border:none;
 	text-indent: 15px;
@@ -130,9 +128,66 @@ export const SearchItem = styled.input.attrs({
 		color:#ccc;
 	}
 	&.focused{
-		width: 240px;		
+		width: 335px;		
 	}
 `;
+
+
+
+export const SearchContent = styled.div`
+	position: absolute;
+	display: none;
+	width: 250px;	
+	top: 100%;
+	padding:20px  20px 10px;
+	border-radius: 5px;
+	background-color: #fff;	
+	box-shadow: 0 0 8px rgba(0,0,0,.2);
+	&.show{
+		display:block;
+	}
+	&:before{
+		position: absolute;
+		display: inline-block;
+		content: '';
+		top: -7px;
+		left: 40px;
+		height: 13px;
+		width: 13px;
+		background-color: #fff;
+		border: 1px solid rgba(0,0,0,.1);
+		border-width:1px 0  0 1px;		
+		transform: rotate(45deg);
+	}
+`;
+
+
+export  const SearchContentTitle =styled.div`
+	font-size: 15px;
+	line-height: 20px;
+`;
+
+export  const SearchSwitch =styled.a`
+	display:inline-block;
+	float: right;
+	font-size: 14px;
+`;
+
+export  const SearchList =styled.div`
+	margin-top: 20px;	
+`;
+export  const ListItem =styled.a`
+	display:inline-block;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	color: #777;
+	border-radius: 3px;
+	padding: 0 5px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+`;
+
+
 
 export const Glass = styled.div`
 	display:inline-block;

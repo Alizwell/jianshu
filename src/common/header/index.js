@@ -14,13 +14,17 @@ import {
 	NavItem,
 	SearchItem,
 	Glass,
+	SearchContent,
+	SearchContentTitle,
+	SearchSwitch,
+	SearchList,
+	ListItem,
 	BtnWrap,
 	Button,
 	Font
 }  from './style';
 
 class Header extends Component{
-
 	render(){
 		return (
 			<NavBar>
@@ -45,7 +49,22 @@ class Header extends Component{
 									onBlur={this.props.handleBlur}
 								/>
 							</CSSTransition>
-							<Glass className={ this.props.focused ? 'focused' : '' }><i className='iconfont'>&#xe6dd;</i></Glass>							
+							<Glass className={ this.props.focused ? 'focused' : '' }><i className='iconfont'>&#xe6dd;</i></Glass>
+							<SearchContent  className={ this.props.focused ? 'show' : '' }>							
+								<SearchContentTitle>
+									热门搜索
+									<SearchSwitch>
+										换一批
+									</SearchSwitch>
+									<SearchList>
+										{
+											this.props.list.map((val, index)=>{
+												return <ListItem  key={index}>{val}</ListItem>
+											})
+										}										
+									</SearchList>
+								</SearchContentTitle>
+							</SearchContent>
 						</NavItem>
 						<NavItem className="right">Aa</NavItem>
 						<NavItem className="right">登录</NavItem>
@@ -58,9 +77,9 @@ class Header extends Component{
 }
 
 const mapStateToProps = (state)=>{
-	return {		
-		// focused: state.get('header').get('focused')
-		focused: state.getIn(['header','focused'])
+	return {				
+		focused: state.getIn(['header','focused']),
+		list: state.get('header').get('list')
 	}
 }
 
