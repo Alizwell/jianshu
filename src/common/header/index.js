@@ -87,7 +87,8 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch)=>{
 	return {
 		handleFocus(){
-			dispatch(actionCreators.actionSearchFocus());			
+			dispatch( actionCreators.actionGetList() );
+			dispatch( actionCreators.actionSearchFocus() );
 		},
 		handleBlur(){
 			dispatch(actionCreators.actionSearchBlur());	

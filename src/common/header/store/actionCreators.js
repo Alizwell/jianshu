@@ -1,5 +1,13 @@
 import *  as  actionTypes  from './actionTypes';
 
+import  axios  from 'axios';
+
+const setSearchList = (data)=>({
+	type: actionTypes.SET_SEARCH_LIST,
+	data
+});
+
+
 export const actionSearchFocus = ()=>({
 	type: actionTypes.SEARCH_FOCUS
 })
@@ -7,3 +15,19 @@ export const actionSearchFocus = ()=>({
 export const actionSearchBlur = ()=>({
 	type: actionTypes.SEARCH_BLUR
 })
+
+
+export const actionGetList = ()=>{
+	return (dispatch)=>{
+		axios.get('./api/list.json')
+		.then((res)=>{
+			if(res.status === 200 && res.data.success){
+				let data = res.data.data;
+				dispatch( setSearchList(data) );				
+			}			
+		})
+		.catch(err=>{
+			console.log(err);
+		})
+	}
+}
