@@ -17,7 +17,7 @@ import {
 	SearchContent,
 	SearchContentTitle,
 	SearchSwitch,
-	SearchList,
+	SearchList,	
 	ListItem,
 	BtnWrap,
 	Button,
@@ -25,6 +25,10 @@ import {
 }  from './style';
 
 class Header extends Component{
+	constructor(props){
+		super(props);
+		// this.myRef = React.createRef();
+	}
 
 	render(){
 		const { list, index, pageSize, switchSearch, handleSearchMouseEnter, handleSearchMouseLeave  } = this.props;
@@ -70,8 +74,8 @@ class Header extends Component{
 								<SearchContent  onMouseEnter ={ handleSearchMouseEnter }  onMouseLeave={ handleSearchMouseLeave }>							
 									<SearchContentTitle>
 										热门搜索
-										<SearchSwitch  onClick={ switchSearch }>
-											换一批
+										<SearchSwitch  onClick={ ()=>switchSearch(this.myRef) }  >
+											<i   ref={ (icon)=>{  this.myRef = icon } }  className="iconfont  spin">&#xe851;</i>换一批
 										</SearchSwitch>									
 										{ SearchListData() }
 									</SearchContentTitle>
@@ -115,7 +119,12 @@ const mapDispatchToProps = (dispatch)=>{
 		handleBlur(){
 			dispatch(actionCreators.actionSearchBlur());	
 		},
-		switchSearch(){
+		switchSearch(spin){			
+			let originAngle = spin.style.transform.replace(/[^\d]/ig, '');
+			//初始时originAngle为空
+			originAngle = originAngle ?  parseInt(originAngle ,10) : 0;			
+			originAngle += 360;			
+			spin.style.transform = `rotate(${originAngle}deg)`;
 			dispatch(actionCreators.actionSwitchSearch() );
 		}
 	}
