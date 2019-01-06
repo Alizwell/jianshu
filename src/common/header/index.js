@@ -25,7 +25,23 @@ import {
 }  from './style';
 
 class Header extends Component{
+
 	render(){
+		const { list, index, pageSize, switchSearch, handleSearchMouseEnter, handleSearchMouseLeave  } = this.props;
+
+		const SearchListData = ()=>{
+			return (
+				<SearchList>
+					{
+						list.slice( index * pageSize, (index + 1) * pageSize  ).map((val, keyIndex)=>{
+							return <ListItem  key={keyIndex}>{val}</ListItem>
+						})
+					}
+				</SearchList>
+			);
+		}
+
+
 		return (
 			<NavBar>
 				<HeaderWrap>
@@ -50,21 +66,17 @@ class Header extends Component{
 								/>
 							</CSSTransition>
 							<Glass className={ this.props.focused ? 'focused' : '' }><i className='iconfont'>&#xe6dd;</i></Glass>
-							<SearchContent  className={ this.props.focused ? 'show' : '' }>							
-								<SearchContentTitle>
-									热门搜索
-									<SearchSwitch>
-										换一批
-									</SearchSwitch>
-									<SearchList>
-										{
-											this.props.list.map((val, index)=>{
-												return <ListItem  key={index}>{val}</ListItem>
-											})
-										}										
-									</SearchList>
-								</SearchContentTitle>
-							</SearchContent>
+							{  (this.props.mouseIn  ||  this.props.focused) && 
+								<SearchContent  onMouseEnter ={ handleSearchMouseEnter }  onMouseLeave={ handleSearchMouseLeave }>							
+									<SearchContentTitle>
+										热门搜索
+										<SearchSwitch  onClick={ switchSearch }>
+											换一批
+										</SearchSwitch>									
+										{ SearchListData() }
+									</SearchContentTitle>
+								</SearchContent>
+							}							
 						</NavItem>
 						<NavItem className="right">Aa</NavItem>
 						<NavItem className="right">登录</NavItem>
@@ -79,7 +91,11 @@ class Header extends Component{
 const mapStateToProps = (state)=>{
 	return {				
 		focused: state.getIn(['header','focused']),
-		list: state.get('header').get('list')
+		list: state.get('header').get('list'),
+		index: state.get('header').get('index'),
+		pageSize: state.get('header').get('pageSize'),
+		total: state.get('header').get('total'),
+		mouseIn: state.get('header').get('mouseIn')
 	}
 }
 
@@ -90,8 +106,17 @@ const mapDispatchToProps = (dispatch)=>{
 			dispatch( actionCreators.actionGetList() );
 			dispatch( actionCreators.actionSearchFocus() );
 		},
+		handleSearchMouseEnter(){
+			dispatch( actionCreators.actionMouseEnter() );
+		},
+		handleSearchMouseLeave(){
+			dispatch( actionCreators.actionMouseLeave() );
+		},
 		handleBlur(){
 			dispatch(actionCreators.actionSearchBlur());	
+		},
+		switchSearch(){
+			dispatch(actionCreators.actionSwitchSearch() );
 		}
 	}
 }

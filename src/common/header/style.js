@@ -135,17 +135,13 @@ export const SearchItem = styled.input.attrs({
 
 
 export const SearchContent = styled.div`
-	position: absolute;
-	display: none;
+	position: absolute;	
 	width: 250px;	
 	top: 100%;
 	padding:20px  20px 10px;
 	border-radius: 5px;
 	background-color: #fff;	
 	box-shadow: 0 0 8px rgba(0,0,0,.2);
-	&.show{
-		display:block;
-	}
 	&:before{
 		position: absolute;
 		display: inline-block;
@@ -185,6 +181,9 @@ export  const ListItem =styled.a`
 	padding: 0 5px;
 	margin-right: 10px;
 	margin-bottom: 10px;
+	&:hover{
+		background-color: #ccc;
+	}
 `;
 
 

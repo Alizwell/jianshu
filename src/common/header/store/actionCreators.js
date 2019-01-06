@@ -31,3 +31,17 @@ export const actionGetList = ()=>{
 		})
 	}
 }
+
+
+export const actionSwitchSearch = ()=>({
+	type: actionTypes.SWITCH_SEARCH
+})
+
+
+export const actionMouseEnter = ()=>({
+	type: actionTypes.MOUSER_ENTER
+})
+
+export const actionMouseLeave = ()=>({
+	type: actionTypes.MOUSER_LEAVE
+})
