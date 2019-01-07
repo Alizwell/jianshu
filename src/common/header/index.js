@@ -26,8 +26,7 @@ import {
 
 class Header extends Component{
 	constructor(props){
-		super(props);
-		// this.myRef = React.createRef();
+		super(props);		
 	}
 
 	render(){
