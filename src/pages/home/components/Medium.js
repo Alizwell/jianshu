@@ -8,20 +8,8 @@ class Medium  extends  Component{
 		return (
 			<div>
 				<MediumItem>
-					<img   src="//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png" />
-				</MediumItem>
-				<MediumItem>
-					<img   src="//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png" />
-				</MediumItem>
-				<MediumItem>
-					<img   src="//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png" />
-				</MediumItem>
-				<MediumItem>
-					<img   src="//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png" />
-				</MediumItem>
-				<MediumItem>
-					<img   src="//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png" />
-				</MediumItem>
+					<img   alt="img"  src="//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png" />
+				</MediumItem>				
 			</div>
 		);
 	}

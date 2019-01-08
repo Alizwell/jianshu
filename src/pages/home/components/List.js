@@ -1,36 +1,46 @@
 import React, { Component }  from 'react';
 
+import  { connect } from 'react-redux';
+
+import { actionCreators }  from '../store';
+
 import {
 	ListItem
 }	from '../style';
 
 class List  extends  Component{
+	componentDidMount(){
+		this.props.initList();
+	}
 	render(){
+		const { list } = this.props;
 		return (
 			<div>
-				 <ListItem>
-				 	<h1>包房公主的报复</h1>
-				 	<p  class="content">所谓的一见钟情不过是见色起意，日久生情也不过是权衡利弊。 靳柯是旅游学院的学生，十八岁的她是全校公认的校花，是男生心中的女神，追她的男生快...</p>
-					<p class="meta"><span>宋家二公子</span></p>	 	
-				 </ListItem>
-				 <ListItem>
-				 	<h1>包房公主的报复</h1>
-				 	<p  class="content">所谓的一见钟情不过是见色起意，日久生情也不过是权衡利弊。 靳柯是旅游学院的学生，十八岁的她是全校公认的校花，是男生心中的女神，追她的男生快...</p>
-					<p class="meta"><span>宋家二公子</span></p>	 	
-				 </ListItem>
-				 <ListItem>
-				 	<h1>包房公主的报复</h1>
-				 	<p  class="content">所谓的一见钟情不过是见色起意，日久生情也不过是权衡利弊。 靳柯是旅游学院的学生，十八岁的她是全校公认的校花，是男生心中的女神，追她的男生快...</p>
-					<p class="meta"><span>宋家二公子</span></p>	 	
-				 </ListItem>
-				 <ListItem>
-				 	<h1>包房公主的报复</h1>
-				 	<p  class="content">所谓的一见钟情不过是见色起意，日久生情也不过是权衡利弊。 靳柯是旅游学院的学生，十八岁的她是全校公认的校花，是男生心中的女神，追她的男生快...</p>
-					<p class="meta"><span>宋家二公子</span></p>	 	
-				 </ListItem>
+				{
+					list.map( (item, index)=>(						
+						<ListItem  key={index}>
+						 	<h1>{item.get('title')}</h1>
+						 	<p  className="content">{item.get('content')}</p>
+							<p className="meta"><span>{item.get('author')}</span></p>	 	
+						</ListItem>						
+					))
+				}
+				
 			</div>
 		);
 	}
 }
 
-export default List;
+const mapState = (state)=>({
+	list: state.getIn(['home', 'list'])
+});
+
+const mapDispatch = (dispatch)=>({
+	initList(){	
+		dispatch( actionCreators.actionInitList() )		
+	}
+})
+
+
+
+export default connect(mapState, mapDispatch)(List);

@@ -22,7 +22,7 @@ export const actionGetList = ()=>{
 		axios.get('./api/list.json')
 		.then((res)=>{
 			if(res.status === 200 && res.data.success){
-				let data = res.data.data;
+				let data = res.data.data;				
 				dispatch( setSearchList(data) );				
 			}			
 		})

@@ -25,10 +25,6 @@ import {
 }  from './style';
 
 class Header extends Component{
-	constructor(props){
-		super(props);		
-	}
-
 	render(){
 		const { list, index, pageSize, switchSearch, handleSearchMouseEnter, handleSearchMouseLeave  } = this.props;
 
@@ -64,7 +60,7 @@ class Header extends Component{
 							>
 								<SearchItem  
 									className={ this.props.focused ? 'focused' : '' }
-									onFocus={this.props.handleFocus}
+									onFocus={()=>this.props.handleFocus(list) }
 									onBlur={this.props.handleBlur}
 								/>
 							</CSSTransition>
@@ -105,8 +101,8 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
 	return {
-		handleFocus(){
-			dispatch( actionCreators.actionGetList() );
+		handleFocus(list){			
+			list.size === 0 && dispatch( actionCreators.actionGetList() );
 			dispatch( actionCreators.actionSearchFocus() );
 		},
 		handleSearchMouseEnter(){
