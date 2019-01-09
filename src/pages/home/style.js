@@ -68,3 +68,47 @@ export const MediumItem = styled.div`
 	}
 	margin: 0 0 5px;
 `;
+
+
+export const WriterWrap = styled.ul`
+	list-style:none;
+	margin: 0;
+	padding: 0;
+`;
+
+
+export  const  WriteList = styled.li`
+	overflow: hidden;
+	display: inline-block;
+	width: 280px;
+	margin-top: 15px;
+	font-size: 14px;
+	img{
+		float: left;
+		border-radius: 50%;
+		width: 48px;
+		height: auto;
+		border: 1px solid #ddd;
+	}
+	p{	
+		overflow: hidden;
+		zoom: 1;
+		line-height: 2em;
+		padding-left: 10px;
+	}
+	.left{
+		float: left;
+	}
+	.right{
+		float: right;
+	}
+	.attention{
+		font-size: 13px
+		color: #42c02e;
+	}
+`;
+
+export const Desc = styled.p`
+	font-size: 12px;
+    color: #969696;
+`;

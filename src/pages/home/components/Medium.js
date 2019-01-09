@@ -1,18 +1,33 @@
 import React, { Component }  from 'react';
 
+import { connect }  from 'react-redux';
 
 import { MediumItem } from '../style';
 
 class Medium  extends  Component{
 	render(){
+		const { medium }  = this.props;
 		return (
 			<div>
-				<MediumItem>
-					<img   alt="img"  src="//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png" />
-				</MediumItem>				
+				{
+					medium.map((item, index)=>(
+							<MediumItem  key={index}>
+								<img   alt=""  src={item} />
+							</MediumItem>								
+						)
+					)
+				}
+								
 			</div>
 		);
 	}
 }
 
-export default Medium;
+const mapState = (state)=>({
+	medium: state.getIn(['home','medium'])
+})
+
+
+export default  connect(mapState ,null)(Medium);
+
+
