@@ -17,7 +17,6 @@ class Medium  extends  Component{
 						)
 					)
 				}
-								
 			</div>
 		);
 	}

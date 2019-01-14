@@ -243,3 +243,38 @@ export const Button =  styled.div`
 		color:#fff;
 	}
 `;
+
+
+export const GoTop = styled.div`
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid #dcdcdc;	
+	text-align: center;
+	font-size: 14px;
+	background: #fff;
+	cursor: pointer;
+	&::before{
+		content:'';
+		height: 20px;
+		width: 20px;
+		font-weight: 400;		
+		margin-top: 20px;
+		line-height: 50px;
+		display: inline-block;
+		border: 1px solid #333;
+		transition: all  .2s  ease-in;
+		transform: rotate(45deg);
+		transform-origin: center center;
+		border-right: none;
+		border-bottom: none;
+	}
+	&:hover{
+		background-color: hsla(0,0%,71%,.1);
+    	transition: .1s ease-in;
+	}
+`;
+

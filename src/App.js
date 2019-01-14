@@ -18,7 +18,7 @@ class App extends Component {
       <div>
         <Provider store={store}>
           <div>
-            <Header />
+            <Header />            
             <BrowserRouter>
               <div>
                 <Route path="/"  exact  component={Home} ></Route>

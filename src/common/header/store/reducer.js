@@ -7,7 +7,8 @@ const defaultState = fromJS({
 	total: 0,
 	index: 0,
 	pageSize: 10,
-	mouseIn: false
+	mouseIn: false,
+	isScroll: false
 });
 
 
@@ -29,7 +30,9 @@ export default (state = defaultState,  action)=>{
 		case actionTypes.MOUSER_ENTER:
 			return  state.set('mouseIn', true);
 		case actionTypes.MOUSER_LEAVE:
-			return  state.set('mouseIn', false);				
+			return  state.set('mouseIn', false);
+		case actionTypes.TOGGLE_SCROLL:
+			return  state.set('isScroll', action.scroll);			
 		default:
 			return state;
 	}

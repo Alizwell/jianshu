@@ -12,6 +12,10 @@ export const MOUSER_ENTER = 'header/MOUSER_ENTER';
 
 export const MOUSER_LEAVE = 'header/MOUSER_LEAVE';
 
+export const TOGGLE_SCROLL = 'header/TOGGLE_SCROLL';
+
+
+
 
 
 

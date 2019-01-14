@@ -45,3 +45,8 @@ export const actionMouseEnter = ()=>({
 export const actionMouseLeave = ()=>({
 	type: actionTypes.MOUSER_LEAVE
 })
+
+export const toggleScroll =(scroll)=>({
+	type: actionTypes.TOGGLE_SCROLL,
+	scroll
+})
