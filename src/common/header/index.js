@@ -4,7 +4,9 @@ import  { connect }  from 'react-redux';
 
 import { actionCreators }  from './store';
 
-import { CSSTransition } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group';
+
+import { boundce }  from '../../utils';
 
 import {
 	NavBar,
@@ -100,13 +102,7 @@ class Header extends Component{
 	}
 
 	componentDidMount(){
-		window.onscroll = (e)=>{			
-			if( document.documentElement.scrollTop > 300){
-				this.props.toggleScroll(true)
-			}else{
-				this.props.toggleScroll(false)
-			}			
-		}  
+		window.onscroll =  boundce(this.props.handleScroll, 200); 		
 	}
 }
 
@@ -152,6 +148,14 @@ const mapDispatchToProps = (dispatch)=>{
 		},
 		toggleScroll(scroll){
 			dispatch( actionCreators.toggleScroll(scroll) );
+		},
+		handleScroll(){
+			console.log(1111);
+			if( document.documentElement.scrollTop > 300){
+				dispatch( actionCreators.toggleScroll(true) );
+			}else{
+				dispatch( actionCreators.toggleScroll(false) );
+			}			
 		}
 	}
 }
