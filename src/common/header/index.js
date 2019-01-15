@@ -8,6 +8,8 @@ import { CSSTransition } from 'react-transition-group';
 
 import { boundce }  from '../../utils';
 
+import { Link } from 'react-router-dom';
+
 import {
 	NavBar,
 	HeaderWrap,
@@ -57,7 +59,9 @@ class Header extends Component{
 			<div>	
 				<NavBar>
 					<HeaderWrap>
-						<Logo className="left"/>
+						<Link to="/">
+							<Logo className="left"/>
+						</Link>
 						<BtnWrap className="right">
 							<Button className="reg">注册</Button>
 							<Button className="write"><i className="iconfont">&#xeee0;</i>写文章</Button>
@@ -149,8 +153,7 @@ const mapDispatchToProps = (dispatch)=>{
 		toggleScroll(scroll){
 			dispatch( actionCreators.toggleScroll(scroll) );
 		},
-		handleScroll(){
-			console.log(1111);
+		handleScroll(){			
 			if( document.documentElement.scrollTop > 300){
 				dispatch( actionCreators.toggleScroll(true) );
 			}else{

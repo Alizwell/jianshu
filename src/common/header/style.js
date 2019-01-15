@@ -46,7 +46,9 @@ export const HeaderWrap =  styled.header`
 `;
 
 
-export const Logo =  styled.a.attrs({href:'./'})`
+export const Logo =  styled.div`
+	display: inline-block;
+	float:left;
 	width: 100px;	
 	height: 56px;		
 	background-image: url(${logo});
