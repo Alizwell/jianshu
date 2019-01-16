@@ -55,7 +55,7 @@ export const Logo =  styled.div`
 	background-size:contain;
 `;
 
-export const Nav =  styled.ul`
+export const Nav =  styled.ul`“ 
 	width: 960px;
 	height: 56px;
 	font-size: 0;

@@ -20,7 +20,7 @@ class List  extends  Component{
 			<div>
 				{
 					list.map( (item, index)=>(
-						<Link to="/detail" key={index}>						
+						<Link to={`/detail/${item.get('id')}`} key={index}>						
 							<ListItem  >							
 								<h1>{item.get('title')}</h1>							
 							 	<p  className="content">{item.get('content')}</p>

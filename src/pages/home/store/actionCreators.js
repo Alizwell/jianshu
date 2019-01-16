@@ -31,7 +31,7 @@ export const  actionInitList = ()=>{
 
 export const actionInitWriter = ()=>{
 	return (dispatch)=>{
-		axios.get('./api/writerList.json')
+		axios.get('@/api/writerList.json')
 		.then((res)=>{						
 			if(res.status === 200 && res.data ){
 				let data = res.data.users;							
