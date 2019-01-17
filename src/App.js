@@ -10,22 +10,27 @@ import Home from './pages/home';
 
 import Detail from './pages/detail';
 
+import Login  from './pages/login';
+
+import { GlobalStyle } from './style';
+
+
 import { BrowserRouter,  Route }  from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div>
         <Provider store={store}>          
             <BrowserRouter>
-              <div>
-                <Header />            
-                <Route path="/"  exact  component={Home} ></Route>
-                <Route path="/detail/:id"  exact component={Detail} ></Route>
-              </div>
-            </BrowserRouter>          
-        </Provider>
-      </div>
+              <React.Fragment>                
+                  <Header />  
+                  <Route path="/"  exact  component={Home} ></Route>
+                  <Route path="/detail/:id"  exact component={Detail} ></Route>
+                  <Route path="/login/:status"  exact component={Login} ></Route>                
+              </React.Fragment>
+            </BrowserRouter>
+            <GlobalStyle />
+        </Provider>      
     )
   }
 }

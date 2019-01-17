@@ -14,6 +14,8 @@ export const MOUSER_LEAVE = 'header/MOUSER_LEAVE';
 
 export const TOGGLE_SCROLL = 'header/TOGGLE_SCROLL';
 
+export const ACTION_TOGGLE_HEADER = 'header/ACTION_TOGGLE_HEADER';
+
 
 
 

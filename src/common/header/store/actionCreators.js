@@ -50,3 +50,9 @@ export const toggleScroll =(scroll)=>({
 	type: actionTypes.TOGGLE_SCROLL,
 	scroll
 })
+
+
+export const actionToggleHeader = (status)=>({
+	type: actionTypes.ACTION_TOGGLE_HEADER,
+	status
+})

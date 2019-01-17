@@ -3,8 +3,7 @@ import   styled , { createGlobalStyle } from  'styled-components';
 import  logo  from './statics/logo.png';
 
 
-export const NavBar = styled.nav`
-	margin-bottom: 20px;
+export const NavBar = styled.nav`	
 	height: 56px;
 	border: 1px solid #f0f0f0;
 `;
