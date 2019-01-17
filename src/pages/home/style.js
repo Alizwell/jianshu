@@ -35,6 +35,7 @@ export const BannerImg = styled.a`
 export const ListItem = styled.div`
 	padding: 20px 2px;
 	border-bottom: 1px solid #ccc;
+	color: #333;
 	h1{
 		font-size: 18px;
 		line-height: 1.5;

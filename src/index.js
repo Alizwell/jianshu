@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import axios  from './utils/http';
 import { GlobalStyle } from './style';
 
 import App from './App';

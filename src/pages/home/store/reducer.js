@@ -4,7 +4,7 @@ import { fromJS }  from 'immutable';
 
 const defaultState = fromJS({
 	list:[],
-	medium:[
+	medium:[		
 		"//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png",
 		"//cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png",
 		"//cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png",
